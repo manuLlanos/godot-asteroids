@@ -1,7 +1,7 @@
 ### Controls
-WASD/arrow keys to move (you can move backwards too)
-Space/Left Click to fire
-Left CTRL to emergency warp (*RISKY*, teleports you to a random position, which can include the middle of an asteroid, can only be used every 10 seconds)
+- WASD/arrow keys to move (you can move backwards too)
+- Space/Left Click to fire
+- Left CTRL to emergency warp (*RISKY*, teleports you to a random position, which can include the middle of an asteroid, can only be used every 10 seconds)
 
 On spawn/respawn, you have 2 seconds of invulnerability shown by the ship flashing
 
