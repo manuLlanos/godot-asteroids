@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd4c7244m3psm"]
+
+[ext_resource type="Texture2D" uid="uid://dh2vxpap2om6e" path="res://graphics/ship.png" id="1_mg8yb"]
+[ext_resource type="Script" path="res://scenes/ship.gd" id="1_o20hc"]
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_o20hc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_mg8yb")
+hframes = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -20, 14, 17, -14, 17)
+
+[node name="DirectionMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -23)

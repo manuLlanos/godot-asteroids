@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://mpw3cidd0hn3"]
+
+[ext_resource type="AudioStream" uid="uid://choc6tskwsv04" path="res://sounds/laser.wav" id="1_8kn53"]
+[ext_resource type="Script" path="res://scenes/globals/sound_manager.gd" id="1_jqo75"]
+[ext_resource type="AudioStream" uid="uid://baeryvcihanfi" path="res://sounds/retro-explosion-05.wav" id="2_thvfb"]
+[ext_resource type="AudioStream" uid="uid://cpox0wssqr6fr" path="res://sounds/orbital-rocket-exhaust-close.wav" id="4_cdfij"]
+[ext_resource type="AudioStream" uid="uid://c6abwhlina4xh" path="res://sounds/teleport.wav" id="5_m68eg"]
+[ext_resource type="AudioStream" uid="uid://bhi4xd3tn6cjh" path="res://sounds/powerup.wav" id="6_63lrk"]
+[ext_resource type="AudioStream" uid="uid://dre0qroxt0ylb" path="res://sounds/hardgrunge.wav" id="7_qj6t4"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_jqo75")
+
+[node name="Laser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8kn53")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_thvfb")
+volume_db = -10.0
+
+[node name="RocketThrust" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cdfij")
+volume_db = -10.0
+
+[node name="Teleport" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_m68eg")
+
+[node name="Powerup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_63lrk")
+volume_db = -15.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qj6t4")
+volume_db = -24.0

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://eljpftelkc3m"]
+
+[ext_resource type="Script" path="res://scenes/effects/particles.gd" id="1_qfo6i"]
+
+[sub_resource type="Curve" id="Curve_64pgo"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 0.7547), 0.0, 0.0, 0, 0, Vector2(0.99999, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_l1pfj"]
+offsets = PackedFloat32Array(0, 0.207207, 0.513514, 0.765766, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.188235, 1, 0.984314, 0.184314, 0.121569, 1, 0.485199, 0.0533935, 0.0740808, 0.592593, 1, 0.0156863, 0.054902, 0)
+
+[node name="ExplosionParticles" type="CPUParticles2D"]
+amount = 80
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+linear_accel_curve = SubResource("Curve_64pgo")
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_l1pfj")
+script = ExtResource("1_qfo6i")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4td7qvwpg2c1"]
+
+[ext_resource type="Script" path="res://scenes/effects/particles.gd" id="1_gi40t"]
+
+[sub_resource type="Curve" id="Curve_rgmfw"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_vt7hu"]
+offsets = PackedFloat32Array(0, 0.216216, 0.459459, 0.765766, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.266667, 0.631373, 1, 1, 0.203922, 0.203922, 1, 1, 0.454902, 0, 1, 1, 0.0627451, 0, 1, 0)
+
+[node name="TeleportOutParticles" type="CPUParticles2D"]
+emitting = false
+amount = 50
+lifetime = 0.8
+explosiveness = 0.9
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.2
+linear_accel_curve = SubResource("Curve_rgmfw")
+scale_amount_min = 5.0
+scale_amount_max = 7.0
+color_ramp = SubResource("Gradient_vt7hu")
+script = ExtResource("1_gi40t")

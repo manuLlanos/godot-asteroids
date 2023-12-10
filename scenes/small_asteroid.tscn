@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj0pfvi2eukbc"]
+
+[ext_resource type="Script" path="res://scenes/asteroid.gd" id="1_0t41l"]
+[ext_resource type="PackedScene" uid="uid://c21rkuknefs42" path="res://scenes/tiny_asteroid.tscn" id="2_xbok1"]
+[ext_resource type="Texture2D" uid="uid://0r3mhn2q5rnn" path="res://graphics/Asteroid Brown.png" id="3_ylrj1"]
+[ext_resource type="PackedScene" uid="uid://lx8h3iqemofx" path="res://scenes/components/screen_wrap_component.tscn" id="4_jk7l0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gi2se"]
+radius = 24.0208
+
+[node name="SmallAsteroid" type="Area2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_0t41l")
+speed = 150
+divides_into_scene = ExtResource("2_xbok1")
+score = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_ylrj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gi2se")
+
+[node name="ScreenWrapComponent" parent="." instance=ExtResource("4_jk7l0")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

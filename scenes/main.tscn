@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwqmifqcnp80r"]
+
+[ext_resource type="Texture2D" uid="uid://c16td0uvrattg" path="res://graphics/galaxy-512px-seamless.png" id="1_gv7j8"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_sf1xs"]
+[ext_resource type="PackedScene" uid="uid://d1ejl6ucxwoo3" path="res://scenes/components/player_spawn_point.tscn" id="3_w6yxw"]
+[ext_resource type="PackedScene" uid="uid://x5kgqoa26kwd" path="res://scenes/asteroid_spawner.tscn" id="4_3e3l7"]
+[ext_resource type="PackedScene" uid="uid://c1qsjyux57gfv" path="res://scenes/UI/ui.tscn" id="4_brrl2"]
+[ext_resource type="PackedScene" uid="uid://b6ej21d4pr6ng" path="res://scenes/alien_spawner.tscn" id="6_a02v5"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sf1xs")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(600, 300)
+texture = ExtResource("1_gv7j8")
+region_enabled = true
+region_rect = Rect2(0, 0, 1200, 900)
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="PlayerSpawnPoint" parent="." instance=ExtResource("3_w6yxw")]
+position = Vector2(620, 318)
+
+[node name="AsteroidSpawner" parent="." instance=ExtResource("4_3e3l7")]
+
+[node name="AlienSpawner" parent="." instance=ExtResource("6_a02v5")]
+
+[node name="UI" parent="." instance=ExtResource("4_brrl2")]
+unique_name_in_owner = true
+
+[connection signal="create_laser" from="PlayerSpawnPoint" to="." method="_on_player_spawn_point_create_laser"]

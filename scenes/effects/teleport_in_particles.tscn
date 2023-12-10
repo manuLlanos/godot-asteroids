@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cimhecolukct0"]
+
+[ext_resource type="Script" path="res://scenes/effects/particles.gd" id="1_oupwo"]
+
+[sub_resource type="Gradient" id="Gradient_vt7hu"]
+offsets = PackedFloat32Array(0, 0.306306, 0.720721, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="TeleportInParticles" type="CPUParticles2D"]
+self_modulate = Color(0.286275, 0.419608, 1, 1)
+emitting = false
+amount = 50
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 60.0
+spread = 180.0
+gravity = Vector2(0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.2
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+scale_amount_min = 5.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_vt7hu")
+script = ExtResource("1_oupwo")

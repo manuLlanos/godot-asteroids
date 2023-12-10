@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://x5kgqoa26kwd"]
+
+[ext_resource type="Script" path="res://scenes/asteroid_spawner.gd" id="1_32ow4"]
+[ext_resource type="PackedScene" uid="uid://byq6si7hjqlhp" path="res://scenes/asteroid.tscn" id="2_myeq1"]
+[ext_resource type="Script" path="res://scenes/Asteroids.gd" id="3_jrs1c"]
+
+[sub_resource type="Curve2D" id="Curve2D_oiej8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="AsteroidSpawner" type="Path2D"]
+curve = SubResource("Curve2D_oiej8")
+script = ExtResource("1_32ow4")
+spawn_scene = ExtResource("2_myeq1")
+
+[node name="SpawnPoint" type="PathFollow2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Spawns" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_jrs1c")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

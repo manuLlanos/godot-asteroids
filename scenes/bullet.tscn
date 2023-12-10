@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8as42fkn1vs6"]
+
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_jyr2p"]
+[ext_resource type="Texture2D" uid="uid://751sxk31e5t" path="res://graphics/laser.png" id="1_mdnvt"]
+[ext_resource type="PackedScene" uid="uid://lx8h3iqemofx" path="res://scenes/components/screen_wrap_component.tscn" id="3_ck3jb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rgju"]
+size = Vector2(4, 10)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_jyr2p")
+lifetime = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0rgju")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_mdnvt")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="ScreenWrapComponent" parent="." instance=ExtResource("3_ck3jb")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
