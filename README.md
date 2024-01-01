@@ -1,3 +1,6 @@
+
+![asteroids](https://github.com/manuLlanos/godot-asteroids/assets/26463463/f6af0603-810f-4c6d-9a7f-d0c0c9bd1c86)
+
 ### Controls
 - WASD/arrow keys to move (you can move backwards too)
 - Space/Left Click to fire
